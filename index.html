@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="index.js"></script>
+    <title>Pokemon Page</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pokemon: Special Defense vs Total Stats</h1>
+    <div id="graph-container">
+        <div id="graph"></div>
+        <div id="tool-bar">
+            <select name="legendary" id="lgd">
+                <option value="All" selected="selected">(All)</option>
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+
+            <select name="generation" id="generation">
+                <option value="All">(All)</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+
+        </div>
+    </div>
+</body>
+</html>
