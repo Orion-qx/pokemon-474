@@ -7,31 +7,109 @@
     <style>
         h1 {
             text-align: center;
-            margin: 10px;
+            margin: 5x;
+        }
+
+        #graph-container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 30px;
+        }
+
+        #tool-bar {
+            display: flex;
+            flex-direction: column;
+            border: 1.5px solid grey;
+        }
+
+        select {
+            font-size: 13px;
+            margin: 10px 20px;
+            margin-top: 0px;
+            background-color: wheat;
+            border: 6px solid transparent;
+            border-radius: 0;
+            width: 100px;
+        }
+
+        option {
+            padding: 10px;
+            border: 10px;
+        }
+
+        h2 {
+            text-align: left;
+            font-size: 13px;
+            margin: 20px;
+            margin-bottom: 5px;
+        }
+
+        #type1 {
+            margin-bottom: 20px;
+        }
+
+        #type1 div {
+            margin: 3px 20px;
+        }
+
+        #type1 p {
+            margin:0;
+        }
+
+        .text-div {
+            display: flex;
+            align-items: center;
+        }
+
+        .cube {
+            height: 10px;
+            width: 10px;
+            border: 1px solid black;
+        }
+        div.tooltip {
+            position: absolute;
+            text-align: left;
+            width: 100px;
+            height: 60px;
+            padding: 3px;
+            font-size: 5px;
+            background: lightsteelblue;
+            border: 0px;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
-    <h1>Blah Pokemon: Special Defense vs Total Stats</h1>
+    <h1>Pokemon: Special Defense vs Total Stats</h1>
     <div id="graph-container">
         <div id="graph"></div>
         <div id="tool-bar">
-            <select name="legendary" id="lgd">
-                <option value="All" selected="selected">(All)</option>
-                <option value="True">True</option>
-                <option value="False">False</option>
-            </select>
+            <label>
+                <h2>Legendary</h2>
+                <select name="legendary" id="lgd">
+                    <option value="-1" selected="selected">(All)</option>
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </label>
 
-            <select name="generation" id="generation">
-                <option value="All">(All)</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-            </select>
+            <label>
+                <h2>Generation</h2>
+                <select name="generation" id="generation">
+                    <option value="-1">(All)</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </label>
 
+            <label id="type1">
+                <h2>Type 1</h2>
+            </label>
         </div>
     </div>
 </body>
