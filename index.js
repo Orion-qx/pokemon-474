@@ -39,6 +39,8 @@
     }
     const margin = 30;
     let svg = "";
+    let lgd = -1;
+    let gene = -1;
 
     window.addEventListener("load", init);
 
@@ -74,8 +76,6 @@
     function makeScatterPlot(data) {
         let total = data.map((row) => parseInt(row["Total"]));
         let spdef = data.map((row) => parseInt(row["Sp. Def"]));
-        let lgd = 0;
-        let gene = 0;
 
         /***
          * Create x&y axis
@@ -106,31 +106,35 @@
 
         /*********
          *  Create toolbar
+         *  Fail to have a joint effect....
          */
         drawPoints(xScale, yScale, data);
         id("lgd").addEventListener("change", function() {
             lgd = this.value;
-            let currData = data;
-            if (lgd == 1) {
-                currData = data.filter(function(d){ return d["Legendary"] == "True" });
-            } else if (lgd == 0) {
-                currData = data.filter(function(d){ return d["Legendary"] == "False" });
-            } else {
-                currData = data;
-            }
-            drawPoints(xScale, yScale, currData);
+            filterData(data, xScale, yScale);
         });
 
         id("generation").addEventListener("change", function() {
             gene = this.value;
-            let currData = data;
-            if (gene == -1) {
-                currData = data;
-            } else {
-                currData = data.filter(function(d){ return d["Generation"] == gene });
-            }
-            drawPoints(xScale, yScale, currData);
+            filterData(data, xScale, yScale);
         })
+    }
+
+    function filterData(data, xScale, yScale) {
+        let currData;
+        if (lgd == 1) {
+            currData = data.filter(function(d){ return d["Legendary"] == "True" });
+        } else if (lgd == 0) {
+            currData = data.filter(function(d){ return d["Legendary"] == "False" });
+        } else {
+            currData = data;
+        }
+        if (gene == -1) {
+            currData = currData;
+        } else {
+            currData = currData.filter(function(d){ return d["Generation"] == gene });
+        }
+        drawPoints(xScale, yScale, currData);
     }
 
     function drawPoints(xScale, yScale, data) {

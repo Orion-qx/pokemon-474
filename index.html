@@ -5,9 +5,16 @@
     <script src="index.js"></script>
     <title>Pokemon Page</title>
     <style>
+        body {
+            background-color: black;
+            background-image: url("pokemongo.jpg");
+            background-size: contain;
+        }
         h1 {
             text-align: center;
-            margin: 5x;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: white;
         }
 
         #graph-container {
@@ -15,12 +22,15 @@
             justify-content: space-evenly;
             align-items: center;
             margin: 30px;
+            background-color: rgb(175, 175, 175, 0.85);
+            padding: 10px;
+            margin-top: 10px;
         }
 
         #tool-bar {
             display: flex;
             flex-direction: column;
-            border: 1.5px solid grey;
+            border: 1.5px solid black;
         }
 
         select {
@@ -70,12 +80,13 @@
         div.tooltip {
             position: absolute;
             text-align: left;
-            width: 100px;
-            height: 60px;
+            width: auto;
+            height: auto;
             padding: 3px;
             font-size: 5px;
-            background: lightsteelblue;
+            background: wheat;
             border: 0px;
+            border-radius: 5px;
             pointer-events: none;
         }
     </style>
